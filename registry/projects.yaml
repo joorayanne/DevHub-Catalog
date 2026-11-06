@@ -1,0 +1,67 @@
+
+projects:
+  # Project 1: Microservice-based application
+  - name: customer-management-platform
+    title: Customer Management Platform
+    description: Platform for managing customer information and related services
+    lifecycle: production
+    domain: project
+
+    components:
+      - name: customer-service
+        title: Customer Service
+        description: Microservice responsible for customer management
+        type: service
+        lifecycle: production
+        repositoryUrl: https://github.com/YOUR-ORG/customer-service
+        apis:
+          - name: customers-api
+            title: Customers API
+            description: API for creating, retrieving, and updating customers
+            openApiUrl: http://192.168.20.49:8765/computingenginedoc/v3/api-docs
+            swaggerUrls:
+              - http://192.168.20.49:8765/swagger-ui/webjars/swagger-ui/index.html?urls.primaryName=sdlcs-computing-engine
+
+          - name: customer-addresses-api
+            title: Customer Addresses API
+            description: API for managing customer addresses
+            openApiUrl: http://192.168.20.49:8765/customerdoc/v3/api-docs
+            swaggerUrls:
+              - http://192.168.20.49:8765/swagger-ui/webjars/swagger-ui/index.html?urls.primaryName=sdlcs-customer
+
+      - name: notification-service
+        title: Notification Service
+        description: Microservice responsible for sending notifications
+        type: service
+        lifecycle: production
+        repositoryUrl: https://github.com/YOUR-ORG/notification-service
+
+        apis:
+          - name: notification-api
+            title: Notification API
+            description: API for sending and managing notifications
+            openApiUrl: http://192.168.20.49:8765/loandoc/v3/api-docs
+            swaggerUrls:
+              - http://192.168.20.49:8765/swagger-ui/webjars/swagger-ui/index.html?urls.primaryName=sdlcs-loan
+
+  # Project 2: Standalone application
+  - name: internal-admin-platform
+    title: Internal Admin Platform
+    description: Internal application for managing business operations
+    lifecycle: production
+    domain: engineering
+
+    components:
+      - name: admin-frontend
+        title: Admin Frontend
+        description: Web application for internal administrators
+        type: website
+        lifecycle: production
+        repositoryUrl: https://github.com/YOUR-ORG/admin-frontend
+        apis: 
+          - name: admin-api
+            title: Admin API
+            description: API for internal administrative operations
+            openApiUrl: http://192.168.20.49:6565/v3/api-docs
+            swaggerUrls:
+              - http://192.168.20.49:6565/swagger-ui/index.html

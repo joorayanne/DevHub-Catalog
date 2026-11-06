@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: project
+  title: Project
+  description: Domain for Project
+  annotations:
+    devhub.io/generated-by: devhub-catalog-sync
+spec: {}

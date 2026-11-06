@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: admin-api
+  title: Admin API
+  description: API for internal administrative operations
+  annotations:
+    devhub.io/generated-by: devhub-catalog-sync
+  links:
+    - title: Swagger UI
+      url: http://192.168.20.49:6565/swagger-ui/index.html
+spec:
+  type: openapi
+  definition:
+    $openapi: ../../openapi/admin-api.json

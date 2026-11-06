@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: customer-management-platform
+  title: Customer Management Platform
+  description: Platform for managing customer information and related services
+  annotations:
+    devhub.io/generated-by: devhub-catalog-sync
+spec:
+  domain: project
+  lifecycle: production

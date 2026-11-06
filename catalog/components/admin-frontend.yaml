@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: admin-frontend
+  title: Admin Frontend
+  description: Web application for internal administrators
+  annotations:
+    devhub.io/generated-by: devhub-catalog-sync
+  links:
+    - title: Source Repository
+      url: https://github.com/YOUR-ORG/admin-frontend
+spec:
+  type: website
+  system: internal-admin-platform
+  lifecycle: production
+  providesApis:
+    - admin-api

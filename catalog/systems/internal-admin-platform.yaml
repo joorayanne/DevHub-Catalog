@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: internal-admin-platform
+  title: Internal Admin Platform
+  description: Internal application for managing business operations
+  annotations:
+    devhub.io/generated-by: devhub-catalog-sync
+spec:
+  domain: engineering
+  lifecycle: production

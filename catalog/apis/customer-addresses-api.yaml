@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: customer-addresses-api
+  title: Customer Addresses API
+  description: API for managing customer addresses
+  annotations:
+    devhub.io/generated-by: devhub-catalog-sync
+  links:
+    - title: Swagger UI
+      url: http://192.168.20.49:8765/swagger-ui/webjars/swagger-ui/index.html?urls.primaryName=sdlcs-customer
+spec:
+  type: openapi
+  definition:
+    $openapi: ../../openapi/customer-addresses-api.json

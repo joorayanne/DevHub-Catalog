@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: customers-api
+  title: Customers API
+  description: API for creating, retrieving, and updating customers
+  annotations:
+    devhub.io/generated-by: devhub-catalog-sync
+  links:
+    - title: Swagger UI
+      url: http://192.168.20.49:8765/swagger-ui/webjars/swagger-ui/index.html?urls.primaryName=sdlcs-computing-engine
+spec:
+  type: openapi
+  definition:
+    $openapi: ../../openapi/customers-api.json

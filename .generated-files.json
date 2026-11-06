@@ -1,0 +1,19 @@
+{
+  "files": [
+    "openapi\\customers-api.json",
+    "openapi\\customer-addresses-api.json",
+    "openapi\\notification-api.json",
+    "openapi\\admin-api.json",
+    "catalog\\domains\\project.yaml",
+    "catalog\\domains\\engineering.yaml",
+    "catalog\\systems\\customer-management-platform.yaml",
+    "catalog\\components\\customer-service.yaml",
+    "catalog\\apis\\customers-api.yaml",
+    "catalog\\apis\\customer-addresses-api.yaml",
+    "catalog\\components\\notification-service.yaml",
+    "catalog\\apis\\notification-api.yaml",
+    "catalog\\systems\\internal-admin-platform.yaml",
+    "catalog\\components\\admin-frontend.yaml",
+    "catalog\\apis\\admin-api.yaml"
+  ]
+}

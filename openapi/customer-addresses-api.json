@@ -1,0 +1,3374 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://192.168.20.49:8765",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/sdlc/v1/api/lookup/{uuid}": {
+      "get": {
+        "tags": [
+          "lookup-controller"
+        ],
+        "operationId": "getAllLookupByUuid",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLookupResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "lookup-controller"
+        ],
+        "operationId": "updateLookup",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LookupDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLookupResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "lookup-controller"
+        ],
+        "operationId": "deleteLookup",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}/documents/{documentUuid}/review": {
+      "put": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "reviewCustomerDocument",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerDocumentReviewRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}/detail": {
+      "put": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "updateCustomerDetail",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerDetailDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCustomerResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}/approve": {
+      "put": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "approveCustomer",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApprovalRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/consent/{uuid}": {
+      "get": {
+        "tags": [
+          "consent-controller"
+        ],
+        "operationId": "getConsentById",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseConsentResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "consent-controller"
+        ],
+        "operationId": "updateConsent",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseConsentResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "consent-controller"
+        ],
+        "operationId": "deleteConsent",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/attribute/{uuid}": {
+      "get": {
+        "tags": [
+          "attribute-controller"
+        ],
+        "operationId": "getAttributeByUuid",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseAttributeResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "attribute-controller"
+        ],
+        "operationId": "updateAttribute",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttributeDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseAttributeResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "attribute-controller"
+        ],
+        "operationId": "deleteAttribute",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/lookup": {
+      "get": {
+        "tags": [
+          "lookup-controller"
+        ],
+        "operationId": "getAllLookups",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListLookupResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "lookup-controller"
+        ],
+        "operationId": "createLookup",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LookupDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLookupResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer": {
+      "get": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "getAllCustomers",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/SearchRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePageCustomerResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "createCustomerAll",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCustomerResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}/upload": {
+      "post": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "uploadDocuments",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentTypeUuid",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}/social-media": {
+      "post": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "updateSocialMedia",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SocialMediaDto"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}/image": {
+      "get": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "getCustomerPhoto",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "byte"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "uploadImage",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "image"
+                ],
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}/identification": {
+      "post": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "updateIdentification",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IdentificationDto"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCustomerResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}/identification-attachment": {
+      "post": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "updateIdentificationWithAttachment",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identificationTypeUuid",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identificationNumber",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "issuedOn",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "expiredOn",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}/financial-info": {
+      "post": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "updateFinancialInfo",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FinancialInfoDto"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCustomerResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}/contact-person": {
+      "post": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "updateContactPerson",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ContactPersonDto"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCustomerResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}/consent": {
+      "get": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "getCustomerConsents",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCustomerConsentResponseWrapper"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "updateConsent_1",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerConsentWrapper"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/score": {
+      "get": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "getCustomerScore",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ScoreRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListCustomerScoreResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "updateScore",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonNode"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/central-score": {
+      "post": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "triggerScoreUpdate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScoreRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/consent": {
+      "get": {
+        "tags": [
+          "consent-controller"
+        ],
+        "operationId": "getAllConsents",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/ConsentSearch"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePageConsentResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "consent-controller"
+        ],
+        "operationId": "saveConsent",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseConsentResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/attribute": {
+      "get": {
+        "tags": [
+          "attribute-controller"
+        ],
+        "operationId": "getAllAttributes",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListAttributeResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "attribute-controller"
+        ],
+        "operationId": "createAttribute",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttributeDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseAttributeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/lookup/type/{type}": {
+      "get": {
+        "tags": [
+          "lookup-controller"
+        ],
+        "operationId": "getAllLookupsByType",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListLookupResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}": {
+      "get": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "getCustomerById",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCustomerResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "deleteCustomer",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/{uuid}/consent/{tenantIdentifier}": {
+      "get": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "getCustomerTenantConsents",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tenantIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCustomerTenantConsent"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/profile": {
+      "get": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "getCustomerProfile",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCustomerProfileResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT Access Token": []
+          },
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/sdlc/v1/api/customer/exists": {
+      "get": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "checkCustomerExists",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CustomerCheckRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseCustomerCheckResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/customer/consent/tenant/{tenantIdentifier}": {
+      "get": {
+        "tags": [
+          "customer-controller"
+        ],
+        "operationId": "getTenantConsents",
+        "parameters": [
+          {
+            "name": "tenantIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseTenantConsentResponseWrapper"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/attribute/value/{identifier}/{attributeName}": {
+      "get": {
+        "tags": [
+          "attribute-controller"
+        ],
+        "operationId": "getValueByIdentifierAndAttribute",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "attributeName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/attribute/table/{tableName}": {
+      "get": {
+        "tags": [
+          "attribute-controller"
+        ],
+        "operationId": "getAllAttributesByTableName",
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListAttributeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/attribute/table/{tableName}/{columnName}": {
+      "get": {
+        "tags": [
+          "attribute-controller"
+        ],
+        "operationId": "getAttributeByTableAndColumnName",
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "columnName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseAttributeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/attribute/name/{attributeName}": {
+      "get": {
+        "tags": [
+          "attribute-controller"
+        ],
+        "operationId": "getAttributeByName",
+        "parameters": [
+          {
+            "name": "attributeName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseAttributeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/address": {
+      "get": {
+        "tags": [
+          "address-controller"
+        ],
+        "operationId": "getAllAddresses",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListAddressDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/address/{addressLevel}": {
+      "get": {
+        "tags": [
+          "address-controller"
+        ],
+        "operationId": "getAllAddressesByLevel",
+        "parameters": [
+          {
+            "name": "addressLevel",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListAddressDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/address/sub/{parentAddressId}": {
+      "get": {
+        "tags": [
+          "address-controller"
+        ],
+        "operationId": "getAllChildAddressesByLevel",
+        "parameters": [
+          {
+            "name": "parentAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListAddressDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/address/sub/{parentAddressId}/{addressLevel}": {
+      "get": {
+        "tags": [
+          "address-controller"
+        ],
+        "operationId": "getAllChildAddressesByLevel_1",
+        "parameters": [
+          {
+            "name": "parentAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "addressLevel",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListAddressDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LookupDto": {
+        "type": "object",
+        "properties": {
+          "lookupType": {
+            "type": "string",
+            "enum": [
+              "CONTACT_TYPE",
+              "DOCUMENT_TYPE",
+              "IDENTIFICATION_TYPE",
+              "CONSENT_TYPE"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseLookupResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LookupResponse"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiSubError": {
+        "type": "object"
+      },
+      "LookupResponse": {
+        "type": "object",
+        "properties": {
+          "lookupType": {
+            "type": "string",
+            "enum": [
+              "CONTACT_TYPE",
+              "DOCUMENT_TYPE",
+              "IDENTIFICATION_TYPE",
+              "CONSENT_TYPE"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string"
+          }
+        }
+      },
+      "CustomerDocumentReviewRequest": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "PENDING_REVIEW",
+              "APPROVED",
+              "REJECTED"
+            ]
+          },
+          "remark": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseVoid": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CustomerDetailDto": {
+        "type": "object",
+        "properties": {
+          "occupation": {
+            "type": "string"
+          },
+          "employerName": {
+            "type": "string"
+          },
+          "employmentType": {
+            "type": "string"
+          },
+          "annualIncome": {
+            "type": "number",
+            "format": "double"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "kycStatus": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "PENDING",
+              "ACTIVE",
+              "REJECTED",
+              "SUSPENDED"
+            ]
+          },
+          "maritalStatus": {
+            "type": "string",
+            "enum": [
+              "SINGLE",
+              "MARRIED",
+              "DIVORCED",
+              "WIDOWED",
+              "SEPARATED"
+            ]
+          },
+          "educationLevelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "educationLevel": {
+            "type": "string"
+          },
+          "financialInfoList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FinancialInfoDto"
+            }
+          }
+        }
+      },
+      "FinancialInfoDto": {
+        "type": "object",
+        "properties": {
+          "bic": {
+            "pattern": "^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$",
+            "type": "string"
+          },
+          "accountNumber": {
+            "pattern": "^\\d+$",
+            "type": "string"
+          },
+          "cardNumber": {
+            "pattern": "^\\d{12,19}$",
+            "type": "string",
+            "writeOnly": true
+          }
+        }
+      },
+      "AddressDto": {
+        "type": "object",
+        "properties": {
+          "addressId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "parentAddressId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "addressLevel": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "fullAddress": {
+            "type": "string"
+          },
+          "levelIds": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "ApiResponseCustomerResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CustomerResponse"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ContactPersonResponse": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "middleName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "addressId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contactTypeUuid": {
+            "type": "string"
+          },
+          "personal": {
+            "type": "boolean"
+          },
+          "primary": {
+            "type": "boolean"
+          },
+          "contactPersonUuid": {
+            "type": "string"
+          },
+          "contactType": {
+            "type": "string"
+          },
+          "address": {
+            "$ref": "#/components/schemas/AddressDto"
+          }
+        }
+      },
+      "CustomerDetailResponse": {
+        "type": "object",
+        "properties": {
+          "occupation": {
+            "type": "string"
+          },
+          "employerName": {
+            "type": "string"
+          },
+          "employmentType": {
+            "type": "string"
+          },
+          "annualIncome": {
+            "type": "number",
+            "format": "double"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "kycStatus": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "PENDING",
+              "ACTIVE",
+              "REJECTED",
+              "SUSPENDED"
+            ]
+          },
+          "maritalStatus": {
+            "type": "string",
+            "enum": [
+              "SINGLE",
+              "MARRIED",
+              "DIVORCED",
+              "WIDOWED",
+              "SEPARATED"
+            ]
+          },
+          "educationLevelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "educationLevel": {
+            "type": "string"
+          },
+          "financialInfoList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FinancialInfoDto"
+            }
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "middleName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "gender": {
+            "type": "string",
+            "enum": [
+              "FEMALE",
+              "MALE"
+            ]
+          },
+          "email": {
+            "type": "string"
+          },
+          "nationalId": {
+            "type": "string"
+          },
+          "kebele": {
+            "type": "string"
+          },
+          "houseNo": {
+            "type": "string"
+          },
+          "nationality": {
+            "type": "string"
+          }
+        }
+      },
+      "CustomerDocumentResponse": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "documentTypeUuid": {
+            "type": "string"
+          },
+          "documentTypeName": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PENDING_REVIEW",
+              "APPROVED",
+              "REJECTED"
+            ]
+          },
+          "dateUploaded": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "CustomerResponse": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "kycId": {
+            "type": "string"
+          },
+          "creditScore": {
+            "type": "number",
+            "format": "double"
+          },
+          "socialScore": {
+            "type": "number",
+            "format": "double"
+          },
+          "detail": {
+            "$ref": "#/components/schemas/CustomerDetailResponse"
+          },
+          "created": {
+            "type": "string",
+            "format": "date"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "PENDING",
+              "ACTIVE",
+              "REJECTED",
+              "SUSPENDED"
+            ]
+          },
+          "contactPersons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactPersonResponse"
+            }
+          },
+          "identifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IdentificationResponse"
+            }
+          },
+          "financialInfoList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FinancialInfoResponse"
+            }
+          },
+          "socialMedias": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SocialMediaResponse"
+            }
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerDocumentResponse"
+            }
+          }
+        }
+      },
+      "FinancialInfoResponse": {
+        "type": "object",
+        "properties": {
+          "bic": {
+            "pattern": "^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$",
+            "type": "string"
+          },
+          "accountNumber": {
+            "pattern": "^\\d+$",
+            "type": "string"
+          },
+          "cardNumber": {
+            "pattern": "^\\d{12,19}$",
+            "type": "string",
+            "writeOnly": true
+          },
+          "financialInfoUuid": {
+            "type": "string"
+          }
+        }
+      },
+      "IdentificationResponse": {
+        "type": "object",
+        "properties": {
+          "identificationTypeUuid": {
+            "type": "string"
+          },
+          "identificationNumber": {
+            "type": "string"
+          },
+          "expiredOn": {
+            "type": "string",
+            "format": "date"
+          },
+          "issuedOn": {
+            "type": "string",
+            "format": "date"
+          },
+          "attachment": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "fileExtension": {
+            "type": "string"
+          },
+          "identificationUuid": {
+            "type": "string"
+          },
+          "identificationType": {
+            "type": "string"
+          }
+        }
+      },
+      "SocialMediaResponse": {
+        "type": "object",
+        "properties": {
+          "socialMedia": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "socialMediaUuid": {
+            "type": "string"
+          }
+        }
+      },
+      "ApprovalRequest": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "PENDING",
+              "ACTIVE",
+              "REJECTED",
+              "SUSPENDED"
+            ]
+          },
+          "remark": {
+            "type": "string"
+          },
+          "approverIdentifier": {
+            "type": "string"
+          }
+        }
+      },
+      "ConsentDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "additionalInfo": {
+            "type": "string"
+          },
+          "consentVersion": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "categoryUuid": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseConsentResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ConsentResponse"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ConsentResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "additionalInfo": {
+            "type": "string"
+          },
+          "consentVersion": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "categoryUuid": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          }
+        }
+      },
+      "AttributeDto": {
+        "type": "object",
+        "properties": {
+          "attributeName": {
+            "type": "string"
+          },
+          "columnName": {
+            "type": "string"
+          },
+          "tableName": {
+            "type": "string"
+          },
+          "referenceTableName": {
+            "type": "string"
+          },
+          "referenceColumnName": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseAttributeResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/AttributeResponse"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "AttributeResponse": {
+        "type": "object",
+        "properties": {
+          "attributeName": {
+            "type": "string"
+          },
+          "columnName": {
+            "type": "string"
+          },
+          "tableName": {
+            "type": "string"
+          },
+          "referenceTableName": {
+            "type": "string"
+          },
+          "referenceColumnName": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string"
+          }
+        }
+      },
+      "ContactPersonDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "middleName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "addressId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contactTypeUuid": {
+            "type": "string"
+          },
+          "personal": {
+            "type": "boolean"
+          },
+          "primary": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CustomerDto": {
+        "type": "object",
+        "properties": {
+          "occupation": {
+            "type": "string"
+          },
+          "employerName": {
+            "type": "string"
+          },
+          "employmentType": {
+            "type": "string"
+          },
+          "annualIncome": {
+            "type": "number",
+            "format": "double"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "kycStatus": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "PENDING",
+              "ACTIVE",
+              "REJECTED",
+              "SUSPENDED"
+            ]
+          },
+          "maritalStatus": {
+            "type": "string",
+            "enum": [
+              "SINGLE",
+              "MARRIED",
+              "DIVORCED",
+              "WIDOWED",
+              "SEPARATED"
+            ]
+          },
+          "educationLevelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "educationLevel": {
+            "type": "string"
+          },
+          "financialInfoList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FinancialInfoDto"
+            }
+          },
+          "basic": {
+            "$ref": "#/components/schemas/PersonDto"
+          },
+          "contactPersons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactPersonDto"
+            }
+          },
+          "identifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IdentificationDto"
+            }
+          }
+        }
+      },
+      "IdentificationDto": {
+        "type": "object",
+        "properties": {
+          "identificationTypeUuid": {
+            "type": "string"
+          },
+          "identificationNumber": {
+            "type": "string"
+          },
+          "expiredOn": {
+            "type": "string",
+            "format": "date"
+          },
+          "issuedOn": {
+            "type": "string",
+            "format": "date"
+          },
+          "attachment": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "fileExtension": {
+            "type": "string"
+          }
+        }
+      },
+      "PersonDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "middleName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "gender": {
+            "type": "string",
+            "enum": [
+              "FEMALE",
+              "MALE"
+            ]
+          },
+          "maritalStatus": {
+            "type": "string",
+            "enum": [
+              "SINGLE",
+              "MARRIED",
+              "DIVORCED",
+              "WIDOWED",
+              "SEPARATED"
+            ]
+          },
+          "email": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "kebele": {
+            "type": "string"
+          },
+          "houseNo": {
+            "type": "string"
+          },
+          "educationLevelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "addressId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nationality": {
+            "type": "string"
+          },
+          "photo": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "fullName": {
+            "type": "string"
+          }
+        }
+      },
+      "SocialMediaDto": {
+        "type": "object",
+        "properties": {
+          "socialMedia": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "CustomerConsentDto": {
+        "type": "object",
+        "properties": {
+          "consentUuid": {
+            "type": "string"
+          },
+          "consentStatus": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "ACCEPTED",
+              "DECLINED"
+            ]
+          },
+          "dateConsented": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "CustomerConsentWrapper": {
+        "type": "object",
+        "properties": {
+          "tenantIdentifier": {
+            "type": "string"
+          },
+          "consents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerConsentDto"
+            }
+          }
+        }
+      },
+      "JsonNode": {
+        "type": "object"
+      },
+      "ScoreRequest": {
+        "type": "object",
+        "properties": {
+          "faydaNumber": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseListLookupResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LookupResponse"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "SearchRequest": {
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "nationalId": {
+            "type": "string"
+          },
+          "kycId": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "PENDING",
+              "ACTIVE",
+              "REJECTED",
+              "SUSPENDED"
+            ]
+          }
+        }
+      },
+      "ApiResponsePageCustomerResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageCustomerResponse"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "PageCustomerResponse": {
+        "type": "object",
+        "properties": {
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalElements": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageable": {
+            "$ref": "#/components/schemas/PageableObject"
+          },
+          "numberOfElements": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "first": {
+            "type": "boolean"
+          },
+          "last": {
+            "type": "boolean"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/SortObject"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerResponse"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "empty": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PageableObject": {
+        "type": "object",
+        "properties": {
+          "paged": {
+            "type": "boolean"
+          },
+          "unpaged": {
+            "type": "boolean"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/SortObject"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "SortObject": {
+        "type": "object",
+        "properties": {
+          "unsorted": {
+            "type": "boolean"
+          },
+          "sorted": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ApiResponseCustomerConsentResponseWrapper": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CustomerConsentResponseWrapper"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CustomerConsentResponse": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "consentUuid": {
+            "type": "string"
+          },
+          "consentVersion": {
+            "type": "string"
+          },
+          "consentStatus": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "ACCEPTED",
+              "DECLINED"
+            ]
+          },
+          "dateConsented": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "additionalInfo": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "categoryUuid": {
+            "type": "string"
+          }
+        }
+      },
+      "CustomerConsentResponseWrapper": {
+        "type": "object",
+        "properties": {
+          "tenants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerTenantConsent"
+            }
+          }
+        }
+      },
+      "CustomerTenantConsent": {
+        "type": "object",
+        "properties": {
+          "tenantIdentifier": {
+            "type": "string"
+          },
+          "consents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerConsentResponse"
+            }
+          }
+        }
+      },
+      "ApiResponseCustomerTenantConsent": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CustomerTenantConsent"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponseListCustomerScoreResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerScoreResponse"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CustomerScoreResponse": {
+        "type": "object",
+        "properties": {
+          "scoreType": {
+            "type": "string"
+          },
+          "riskLevel": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "ApiResponseCustomerProfileResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CustomerProfileResponse"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CustomerProfileResponse": {
+        "type": "object",
+        "properties": {
+          "userUuid": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "userVerified": {
+            "type": "boolean"
+          },
+          "profileStatus": {
+            "type": "string"
+          },
+          "onboardingCompleted": {
+            "type": "boolean"
+          },
+          "customerUuid": {
+            "type": "string"
+          },
+          "personProfile": {
+            "$ref": "#/components/schemas/PersonDto"
+          },
+          "customerDetail": {
+            "$ref": "#/components/schemas/CustomerDetailDto"
+          },
+          "message": {
+            "type": "string"
+          },
+          "newPerson": {
+            "type": "boolean"
+          },
+          "requiredSections": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "PENDING",
+              "ACTIVE",
+              "REJECTED",
+              "SUSPENDED"
+            ]
+          },
+          "statusLabel": {
+            "type": "string"
+          },
+          "nextStep": {
+            "type": "string"
+          }
+        }
+      },
+      "CustomerCheckRequest": {
+        "type": "object",
+        "properties": {
+          "faydaNumber": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseCustomerCheckResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CustomerCheckResponse"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CustomerCheckResponse": {
+        "type": "object",
+        "properties": {
+          "exists": {
+            "type": "boolean"
+          },
+          "kycVerified": {
+            "type": "boolean"
+          },
+          "byFaydaNumber": {
+            "type": "boolean"
+          },
+          "byPhoneNumber": {
+            "type": "boolean"
+          },
+          "byEmail": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ApiResponseTenantConsentResponseWrapper": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/TenantConsentResponseWrapper"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CustomerTenantConsentResponses": {
+        "type": "object",
+        "properties": {
+          "customerIdentifier": {
+            "type": "string"
+          },
+          "consents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerConsentResponse"
+            }
+          }
+        }
+      },
+      "TenantConsentResponseWrapper": {
+        "type": "object",
+        "properties": {
+          "customers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerTenantConsentResponses"
+            }
+          }
+        }
+      },
+      "ConsentSearch": {
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "categoryUuid": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponsePageConsentResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageConsentResponse"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "PageConsentResponse": {
+        "type": "object",
+        "properties": {
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalElements": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageable": {
+            "$ref": "#/components/schemas/PageableObject"
+          },
+          "numberOfElements": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "first": {
+            "type": "boolean"
+          },
+          "last": {
+            "type": "boolean"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/SortObject"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConsentResponse"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "empty": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ApiResponseListAttributeResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeResponse"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponseObject": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponseListAddressDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AddressDto"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}

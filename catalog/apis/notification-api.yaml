@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: notification-api
+  title: Notification API
+  description: API for sending and managing notifications
+  annotations:
+    devhub.io/generated-by: devhub-catalog-sync
+  links:
+    - title: Swagger UI
+      url: http://192.168.20.49:8765/swagger-ui/webjars/swagger-ui/index.html?urls.primaryName=sdlcs-loan
+spec:
+  type: openapi
+  definition:
+    $openapi: ../../openapi/notification-api.json

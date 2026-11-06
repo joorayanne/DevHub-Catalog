@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: notification-service
+  title: Notification Service
+  description: Microservice responsible for sending notifications
+  annotations:
+    devhub.io/generated-by: devhub-catalog-sync
+  links:
+    - title: Source Repository
+      url: https://github.com/YOUR-ORG/notification-service
+spec:
+  type: service
+  system: customer-management-platform
+  lifecycle: production
+  providesApis:
+    - notification-api

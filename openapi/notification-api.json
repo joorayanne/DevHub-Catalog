@@ -1,0 +1,3011 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "SDLCS Loan Repayment API",
+    "description": "Loan repayment endpoints integrated with CBS Payment Gateway APIs",
+    "contact": {
+      "name": "EthSwitch",
+      "url": "https://ethswitch.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://192.168.20.49:8765",
+      "description": "Generated server url"
+    }
+  ],
+  "security": [
+    {
+      "Bearer Authentication": []
+    }
+  ],
+  "paths": {
+    "/sdlc/v1/api/notifications/{notificationId}/mark-as-read": {
+      "put": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "markAsRead",
+        "parameters": [
+          {
+            "name": "notificationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/{uuid}": {
+      "get": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "getLoanApplication",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLoanApplicationResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "update",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanApplicationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLoanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/{uuid}/submit": {
+      "put": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "submit",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmitDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLoanApplicationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/{uuid}/disburse": {
+      "put": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "disburse",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanDisbursementRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLoanDisbursementResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/{uuid}/approve": {
+      "put": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "approve",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLoanApplicationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/{uuid}/approve-requirement": {
+      "put": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "approveRequirement",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan": {
+      "post": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "save",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanApplicationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLoanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/{uuid}/upload": {
+      "post": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "uploadDocuments",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requirementTypeUuid",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/validate": {
+      "post": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "validate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationValidationDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLoanResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/repayment/order": {
+      "post": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "repaymentOrder",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanRepaymentOrderRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLoanRepaymentOrderResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/sdlc/v1/api/loan/repayment/initiate": {
+      "post": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "repaymentInitiate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanRepaymentInitiateRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLoanRepaymentInitiateResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/sdlc/v1/api/loan/repayment/callback": {
+      "post": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "repaymentCallback",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanRepaymentCallbackRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/calculate": {
+      "post": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "calculate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLoanAmortization"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/notifications/unread": {
+      "get": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "getUnreadNotifications",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListNotification"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/notifications/filter": {
+      "get": {
+        "tags": [
+          "notification-controller"
+        ],
+        "operationId": "getFilteredNotifications",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "applicationId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePageNotification"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/{uuid}/repayments": {
+      "get": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "repaymentHistory",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListLoanRepaymentTransactionDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/{uuid}/repayment-schedule": {
+      "get": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "repaymentSchedule",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListRepaymentScheduleItemDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/{uuid}/disbursements": {
+      "get": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "disbursementHistory",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListLoanDisbursementResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/types": {
+      "get": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "interestTypes",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListInterestTypeEnum"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/repayment/status/{paymentRequestId}": {
+      "get": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "repaymentStatus",
+        "parameters": [
+          {
+            "name": "paymentRequestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseLoanRepaymentStatusResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer Authentication": []
+          }
+        ]
+      }
+    },
+    "/sdlc/v1/api/loan/product/{identifier}": {
+      "get": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "getByProductIdentifier",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListLoanApplicationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/organization/{bic}": {
+      "get": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "getByBic",
+        "parameters": [
+          {
+            "name": "bic",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListLoanApplicationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/organization/{bic}/paginated": {
+      "get": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "getByBicPaginated",
+        "parameters": [
+          {
+            "name": "bic",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePageLoanApplicationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/get-valid-product/{customerIdentifier}": {
+      "get": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "getValidLoanProducts",
+        "parameters": [
+          {
+            "name": "customerIdentifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListLoanProduct"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/customer/{identifier}": {
+      "get": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "getByCustomerIdentifier",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseListLoanApplicationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdlc/v1/api/loan/all": {
+      "get": {
+        "tags": [
+          "loan-controller"
+        ],
+        "operationId": "getAllByStatus",
+        "parameters": [
+          {
+            "name": "loanStatus",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "DRAFTED",
+                "SUBMITTED",
+                "VERIFIED",
+                "APPROVED",
+                "DISBURSED",
+                "CANCELED",
+                "REJECTED"
+              ]
+            }
+          },
+          {
+            "name": "fromDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "productIdentifier",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "customerIdentifier",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "loanType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "STATUS",
+                "APPLICATION_DATE"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponsePageLoanApplicationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiResponseVoid": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiSubError": {
+        "type": "object"
+      },
+      "LoanApplicationDto": {
+        "required": [
+          "bic",
+          "customerIdentifier",
+          "loanAmount",
+          "loanProductIdentifier",
+          "loanStartDate"
+        ],
+        "type": "object",
+        "properties": {
+          "customerIdentifier": {
+            "type": "string"
+          },
+          "loanProductIdentifier": {
+            "type": "string"
+          },
+          "loanAmount": {
+            "minimum": 1,
+            "exclusiveMinimum": false,
+            "type": "number"
+          },
+          "loanStartDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "bic": {
+            "pattern": "[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?",
+            "type": "string"
+          },
+          "customerAccountNumber": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseLoanResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LoanResponse"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApplicantLoanScoreDto": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "fulfilled": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "requirement": {
+            "type": "string"
+          },
+          "requirementUuid": {
+            "type": "string"
+          },
+          "expectedValue": {
+            "type": "string"
+          },
+          "expectedValueTo": {
+            "type": "string"
+          },
+          "actualValue": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "format": "double"
+          },
+          "optional": {
+            "type": "boolean"
+          },
+          "autoValidation": {
+            "type": "boolean"
+          },
+          "attachmentRequired": {
+            "type": "boolean"
+          },
+          "evaluationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFTED",
+              "SUBMITTED",
+              "VERIFIED",
+              "APPROVED",
+              "DISBURSED",
+              "CANCELED",
+              "REJECTED"
+            ]
+          }
+        }
+      },
+      "CustomerDetailDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "middleName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "occupation": {
+            "type": "string"
+          },
+          "employerName": {
+            "type": "string"
+          },
+          "employmentType": {
+            "type": "string"
+          },
+          "annualIncome": {
+            "type": "number",
+            "format": "double"
+          },
+          "nationalId": {
+            "type": "string"
+          },
+          "kycStatus": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "CustomerResponse": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "kycId": {
+            "type": "string"
+          },
+          "basic": {
+            "$ref": "#/components/schemas/PersonDto"
+          },
+          "detail": {
+            "$ref": "#/components/schemas/CustomerDetailDto"
+          },
+          "created": {
+            "type": "string",
+            "format": "date"
+          },
+          "status": {
+            "type": "string"
+          },
+          "identifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IdentificationResponse"
+            }
+          },
+          "financialInfoList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FinancialInfoResponse"
+            }
+          }
+        }
+      },
+      "FinancialInfoResponse": {
+        "type": "object",
+        "properties": {
+          "bic": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "type": "string"
+          },
+          "cardNumber": {
+            "type": "string"
+          },
+          "financialInfoUuid": {
+            "type": "string"
+          }
+        }
+      },
+      "IdentificationResponse": {
+        "type": "object",
+        "properties": {
+          "identificationTypeUuid": {
+            "type": "string"
+          },
+          "identificationNumber": {
+            "type": "string"
+          },
+          "expiredOn": {
+            "type": "string",
+            "format": "date"
+          },
+          "issuedOn": {
+            "type": "string",
+            "format": "date"
+          },
+          "attachment": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "fileExtension": {
+            "type": "string"
+          },
+          "identificationUuid": {
+            "type": "string"
+          },
+          "identificationType": {
+            "type": "string"
+          }
+        }
+      },
+      "LoanProductFee": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "feeTypeName": {
+            "type": "string"
+          },
+          "calculationType": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          },
+          "calculatedAmount": {
+            "type": "number"
+          }
+        }
+      },
+      "LoanResponse": {
+        "type": "object",
+        "properties": {
+          "loanProductIdentifier": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "bic": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "interestType": {
+            "type": "string"
+          },
+          "repaymentFrequency": {
+            "type": "string"
+          },
+          "typeId": {
+            "type": "string"
+          },
+          "productStatus": {
+            "type": "string"
+          },
+          "termsBeforeDefault": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "termsBeforeWarningStatus": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loanScore": {
+            "type": "number",
+            "format": "double"
+          },
+          "loanLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "levelName": {
+            "type": "string"
+          },
+          "loanAmount": {
+            "type": "number"
+          },
+          "interestRate": {
+            "type": "number"
+          },
+          "loanTerms": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loanScoreStatus": {
+            "type": "string",
+            "enum": [
+              "NOT_RESULTED",
+              "REJECTED",
+              "APPROVED"
+            ]
+          },
+          "loanScoreRemark": {
+            "type": "string"
+          },
+          "creditScoreStatus": {
+            "type": "string",
+            "enum": [
+              "NOT_RESULTED",
+              "REJECTED",
+              "APPROVED"
+            ]
+          },
+          "creditScoreRemark": {
+            "type": "string"
+          },
+          "scores": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApplicantLoanScoreDto"
+            }
+          },
+          "fees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LoanProductFee"
+            }
+          },
+          "feeAmount": {
+            "type": "number"
+          },
+          "netDisbursementAmount": {
+            "type": "number"
+          },
+          "autoApprove": {
+            "type": "boolean"
+          },
+          "customerIdentifier": {
+            "type": "string"
+          },
+          "customerName": {
+            "type": "string"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/CustomerResponse"
+          },
+          "repaymentSchedule": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RepaymentScheduleItemDto"
+            }
+          },
+          "uuid": {
+            "type": "string"
+          }
+        }
+      },
+      "PersonDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "middleName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "martialStatus": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "kebele": {
+            "type": "string"
+          },
+          "houseNo": {
+            "type": "string"
+          },
+          "educationLevelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "addressId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nationality": {
+            "type": "string"
+          },
+          "getFullName": {
+            "type": "string"
+          },
+          "photo": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "byte"
+            }
+          }
+        }
+      },
+      "RepaymentScheduleItemDto": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "installmentNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "principalDue": {
+            "type": "number"
+          },
+          "interestDue": {
+            "type": "number"
+          },
+          "totalDue": {
+            "type": "number"
+          },
+          "amountPaid": {
+            "type": "number"
+          },
+          "outstanding": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "PARTIALLY_PAID",
+              "PAID",
+              "OVERDUE"
+            ]
+          }
+        }
+      },
+      "SubmitDto": {
+        "required": [
+          "customerIdentifier"
+        ],
+        "type": "object",
+        "properties": {
+          "agreed": {
+            "type": "boolean"
+          },
+          "customerIdentifier": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseLoanApplicationResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LoanApplicationResponse"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "BalanceSummaryDto": {
+        "type": "object",
+        "properties": {
+          "originalLoanAmount": {
+            "type": "number"
+          },
+          "totalPaid": {
+            "type": "number"
+          },
+          "totalPrincipalPaid": {
+            "type": "number"
+          },
+          "totalInterestPaid": {
+            "type": "number"
+          },
+          "remainingBalance": {
+            "type": "number"
+          },
+          "nextDueAmount": {
+            "type": "number"
+          },
+          "nextDueDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "repaymentProgress": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "LoanApplicationResponse": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "customerIdentifier": {
+            "type": "string"
+          },
+          "productIdentifier": {
+            "type": "string"
+          },
+          "agreed": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFTED",
+              "SUBMITTED",
+              "VERIFIED",
+              "APPROVED",
+              "DISBURSED",
+              "CANCELED",
+              "REJECTED"
+            ]
+          },
+          "customer": {
+            "$ref": "#/components/schemas/CustomerResponse"
+          },
+          "loan": {
+            "$ref": "#/components/schemas/LoanBasicResponse"
+          },
+          "applicationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LoanStatusHistoryResponse"
+            }
+          },
+          "scores": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApplicantLoanScoreDto"
+            }
+          },
+          "repaymentSchedule": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RepaymentScheduleItemDto"
+            }
+          },
+          "balanceSummary": {
+            "$ref": "#/components/schemas/BalanceSummaryDto"
+          },
+          "approvable": {
+            "type": "boolean"
+          },
+          "loanStatus": {
+            "type": "string",
+            "enum": [
+              "DRAFTED",
+              "SUBMITTED",
+              "VERIFIED",
+              "APPROVED",
+              "DISBURSED",
+              "CANCELED",
+              "REJECTED"
+            ]
+          }
+        }
+      },
+      "LoanBasicResponse": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "loanType": {
+            "type": "string"
+          },
+          "productIdentifier": {
+            "type": "string"
+          },
+          "bic": {
+            "type": "string"
+          },
+          "creditScoreResult": {
+            "type": "string",
+            "enum": [
+              "NOT_RESULTED",
+              "REJECTED",
+              "APPROVED"
+            ]
+          },
+          "loanScoreStatus": {
+            "type": "string",
+            "enum": [
+              "NOT_RESULTED",
+              "REJECTED",
+              "APPROVED"
+            ]
+          },
+          "creditScoreStatus": {
+            "type": "string",
+            "enum": [
+              "NOT_RESULTED",
+              "REJECTED",
+              "APPROVED"
+            ]
+          },
+          "loanScoreRemark": {
+            "type": "string"
+          },
+          "creditScoreRemark": {
+            "type": "string"
+          },
+          "loanStatus": {
+            "type": "string",
+            "enum": [
+              "DRAFTED",
+              "SUBMITTED",
+              "VERIFIED",
+              "APPROVED",
+              "DISBURSED",
+              "CANCELED",
+              "REJECTED"
+            ]
+          },
+          "loanDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "loanAmount": {
+            "type": "number"
+          },
+          "feeAmount": {
+            "type": "number"
+          },
+          "netDisbursementAmount": {
+            "type": "number"
+          },
+          "interestRate": {
+            "type": "number"
+          },
+          "loanTerms": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "interestType": {
+            "type": "string"
+          },
+          "repaymentFrequency": {
+            "type": "string"
+          },
+          "loanScore": {
+            "type": "number",
+            "format": "double"
+          },
+          "loanLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "levelName": {
+            "type": "string"
+          }
+        }
+      },
+      "LoanStatusHistoryResponse": {
+        "type": "object",
+        "properties": {
+          "fromStatus": {
+            "type": "string",
+            "enum": [
+              "DRAFTED",
+              "SUBMITTED",
+              "VERIFIED",
+              "APPROVED",
+              "DISBURSED",
+              "CANCELED",
+              "REJECTED"
+            ]
+          },
+          "toStatus": {
+            "type": "string",
+            "enum": [
+              "DRAFTED",
+              "SUBMITTED",
+              "VERIFIED",
+              "APPROVED",
+              "DISBURSED",
+              "CANCELED",
+              "REJECTED"
+            ]
+          },
+          "remark": {
+            "type": "string"
+          },
+          "approverIdentifier": {
+            "type": "string"
+          },
+          "loanScore": {
+            "type": "number",
+            "format": "double"
+          },
+          "loanLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "levelName": {
+            "type": "string"
+          },
+          "approvalDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "LoanDisbursementRequestDto": {
+        "required": [
+          "approvedAmount",
+          "currency",
+          "disbursementMethod"
+        ],
+        "type": "object",
+        "properties": {
+          "approvedAmount": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "disbursementMethod": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "type": "string"
+          },
+          "bankCode": {
+            "type": "string"
+          },
+          "walletId": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "remark": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseLoanDisbursementResponseDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LoanDisbursementResponseDto"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "LoanDisbursementResponseDto": {
+        "type": "object",
+        "properties": {
+          "disbursementId": {
+            "type": "string"
+          },
+          "loanId": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "loanPrincipalAmount": {
+            "type": "number"
+          },
+          "feeAmount": {
+            "type": "number"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "disbursementMethod": {
+            "type": "string"
+          },
+          "providerReference": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DISBURSEMENT_PENDING",
+              "DISBURSEMENT_INITIATED",
+              "DISBURSEMENT_PROCESSING",
+              "DISBURSED",
+              "FAILED"
+            ]
+          },
+          "disbursementDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "ApproveDto": {
+        "required": [
+          "approverIdentifier",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "DRAFTED",
+              "SUBMITTED",
+              "VERIFIED",
+              "APPROVED",
+              "DISBURSED",
+              "CANCELED",
+              "REJECTED"
+            ]
+          },
+          "remark": {
+            "type": "string"
+          },
+          "approverIdentifier": {
+            "type": "string"
+          }
+        }
+      },
+      "ApplicationValidationDto": {
+        "required": [
+          "customerIdentifier",
+          "loanProductIdentifier"
+        ],
+        "type": "object",
+        "properties": {
+          "customerIdentifier": {
+            "type": "string"
+          },
+          "loanProductIdentifier": {
+            "type": "string"
+          }
+        }
+      },
+      "LoanRepaymentOrderRequestDto": {
+        "required": [
+          "amount",
+          "loanUuid"
+        ],
+        "type": "object",
+        "properties": {
+          "loanUuid": {
+            "type": "string"
+          },
+          "amount": {
+            "minimum": 0.01,
+            "exclusiveMinimum": false,
+            "type": "number"
+          }
+        }
+      },
+      "ApiResponseLoanRepaymentOrderResponseDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LoanRepaymentOrderResponseDto"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "LoanRepaymentOrderResponseDto": {
+        "type": "object",
+        "properties": {
+          "repaymentOrderId": {
+            "type": "string"
+          },
+          "providerReference": {
+            "type": "string"
+          },
+          "repaymentRequestId": {
+            "type": "string"
+          },
+          "merchantReference": {
+            "type": "string"
+          },
+          "merchantOrderNumber": {
+            "type": "string"
+          },
+          "paymentStatus": {
+            "type": "string"
+          },
+          "flowState": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "type": "string"
+          },
+          "correlationId": {
+            "type": "string"
+          }
+        }
+      },
+      "LoanRepaymentInitiateRequestDto": {
+        "required": [
+          "loanUuid",
+          "payerAccountNumber",
+          "repaymentOrderId"
+        ],
+        "type": "object",
+        "properties": {
+          "loanUuid": {
+            "type": "string"
+          },
+          "repaymentOrderId": {
+            "type": "string"
+          },
+          "payerAccountNumber": {
+            "type": "string"
+          },
+          "payerName": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseLoanRepaymentInitiateResponseDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LoanRepaymentInitiateResponseDto"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "LoanRepaymentInitiateResponseDto": {
+        "type": "object",
+        "properties": {
+          "repaymentOrderId": {
+            "type": "string"
+          },
+          "paymentStatus": {
+            "type": "string"
+          },
+          "flowState": {
+            "type": "string"
+          },
+          "providerReference": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "type": "string"
+          },
+          "correlationId": {
+            "type": "string"
+          }
+        }
+      },
+      "LoanRepaymentCallbackRequestDto": {
+        "type": "object",
+        "properties": {
+          "paymentRequestId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "providerReference": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "LoanRequest": {
+        "required": [
+          "amount",
+          "rate",
+          "term"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "minimum": 0.01,
+            "exclusiveMinimum": false,
+            "type": "number"
+          },
+          "rate": {
+            "maximum": 100,
+            "exclusiveMaximum": false,
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "type": "number"
+          },
+          "term": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "interestType": {
+            "type": "string",
+            "enum": [
+              "SIMPLE",
+              "COMPOUND",
+              "AMORTIZED",
+              "ACCRUED",
+              "FIXED",
+              "VARIABLE"
+            ]
+          },
+          "period": {
+            "type": "string",
+            "enum": [
+              "DAILY",
+              "WEEKLY",
+              "BI_WEEKLY",
+              "MONTHLY",
+              "YEARLY"
+            ]
+          },
+          "firstPaymentDate": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "ApiResponseLoanAmortization": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LoanAmortization"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "LoanAmortization": {
+        "type": "object",
+        "properties": {
+          "paymentAmount": {
+            "type": "number"
+          },
+          "interestType": {
+            "type": "string",
+            "enum": [
+              "SIMPLE",
+              "COMPOUND",
+              "AMORTIZED",
+              "ACCRUED",
+              "FIXED",
+              "VARIABLE"
+            ]
+          },
+          "period": {
+            "type": "string",
+            "enum": [
+              "DAILY",
+              "WEEKLY",
+              "BI_WEEKLY",
+              "MONTHLY",
+              "YEARLY"
+            ]
+          },
+          "periodicalPayments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PerodicalPayment"
+            }
+          }
+        }
+      },
+      "PerodicalPayment": {
+        "type": "object",
+        "properties": {
+          "monthNumber": {
+            "type": "integer",
+            "format": "int32",
+            "writeOnly": true
+          },
+          "loanBalanceAmount": {
+            "type": "number"
+          },
+          "debtPaymentAmount": {
+            "type": "number"
+          },
+          "interestPaymentAmount": {
+            "type": "number"
+          },
+          "paymentAmount": {
+            "type": "number"
+          },
+          "additionalPaymentAmount": {
+            "type": "number"
+          },
+          "paymentDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "term": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ApiResponseListNotification": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Notification"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Notification": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dmlFlag": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedBy": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "read": {
+            "type": "boolean"
+          },
+          "type": {
+            "type": "string"
+          },
+          "details": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "ApiResponsePageNotification": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageNotification"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "PageNotification": {
+        "type": "object",
+        "properties": {
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalElements": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageable": {
+            "$ref": "#/components/schemas/PageableObject"
+          },
+          "first": {
+            "type": "boolean"
+          },
+          "last": {
+            "type": "boolean"
+          },
+          "numberOfElements": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/SortObject"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Notification"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "empty": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PageableObject": {
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paged": {
+            "type": "boolean"
+          },
+          "unpaged": {
+            "type": "boolean"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/SortObject"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "SortObject": {
+        "type": "object",
+        "properties": {
+          "sorted": {
+            "type": "boolean"
+          },
+          "unsorted": {
+            "type": "boolean"
+          },
+          "empty": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ApiResponseListLoanRepaymentTransactionDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LoanRepaymentTransactionDto"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "LoanRepaymentTransactionDto": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "paymentRequestId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "appliedAmount": {
+            "type": "number"
+          },
+          "bic": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "type": "string"
+          },
+          "middlewareReference": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "CREATED",
+              "RTP_RECEIVED",
+              "PAID",
+              "SUCCESS",
+              "FAILED"
+            ]
+          },
+          "paymentStatus": {
+            "type": "string"
+          },
+          "flowState": {
+            "type": "string"
+          },
+          "paymentDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponseListRepaymentScheduleItemDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RepaymentScheduleItemDto"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponseListLoanDisbursementResponseDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LoanDisbursementResponseDto"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponseListInterestTypeEnum": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "SIMPLE",
+                "COMPOUND",
+                "AMORTIZED",
+                "ACCRUED",
+                "FIXED",
+                "VARIABLE"
+              ]
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponseLoanRepaymentStatusResponseDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LoanRepaymentStatusResponseDto"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "LoanRepaymentStatusResponseDto": {
+        "type": "object",
+        "properties": {
+          "repaymentRequestId": {
+            "type": "string"
+          },
+          "loanAccountNumber": {
+            "type": "string"
+          },
+          "paymentStatus": {
+            "type": "string"
+          },
+          "terminal": {
+            "type": "boolean"
+          },
+          "flowState": {
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "type": "string"
+          },
+          "correlationId": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponseListLoanApplicationResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LoanApplicationResponse"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponsePageLoanApplicationResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageLoanApplicationResponse"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "PageLoanApplicationResponse": {
+        "type": "object",
+        "properties": {
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalElements": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageable": {
+            "$ref": "#/components/schemas/PageableObject"
+          },
+          "first": {
+            "type": "boolean"
+          },
+          "last": {
+            "type": "boolean"
+          },
+          "numberOfElements": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/SortObject"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LoanApplicationResponse"
+            }
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "empty": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ApiResponseListLoanProduct": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LoanProduct"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiSubError"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "LoanProduct": {
+        "type": "object",
+        "properties": {
+          "loanProductIdentifier": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "bic": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "interestType": {
+            "type": "string"
+          },
+          "repaymentFrequency": {
+            "type": "string"
+          },
+          "typeId": {
+            "type": "string"
+          },
+          "productStatus": {
+            "type": "string"
+          },
+          "termsBeforeDefault": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "termsBeforeWarningStatus": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loanScore": {
+            "type": "number",
+            "format": "double"
+          },
+          "loanLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "levelName": {
+            "type": "string"
+          },
+          "loanAmount": {
+            "type": "number"
+          },
+          "interestRate": {
+            "type": "number"
+          },
+          "loanTerms": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loanScoreStatus": {
+            "type": "string",
+            "enum": [
+              "NOT_RESULTED",
+              "REJECTED",
+              "APPROVED"
+            ]
+          },
+          "loanScoreRemark": {
+            "type": "string"
+          },
+          "creditScoreStatus": {
+            "type": "string",
+            "enum": [
+              "NOT_RESULTED",
+              "REJECTED",
+              "APPROVED"
+            ]
+          },
+          "creditScoreRemark": {
+            "type": "string"
+          },
+          "scores": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApplicantLoanScoreDto"
+            }
+          },
+          "fees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LoanProductFee"
+            }
+          },
+          "feeAmount": {
+            "type": "number"
+          },
+          "netDisbursementAmount": {
+            "type": "number"
+          },
+          "autoApprove": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer Authentication": {
+        "type": "http",
+        "description": "Enter the token obtained from /auth/login endpoint",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

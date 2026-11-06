@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: customer-service
+  title: Customer Service
+  description: Microservice responsible for customer management
+  annotations:
+    devhub.io/generated-by: devhub-catalog-sync
+  links:
+    - title: Source Repository
+      url: https://github.com/YOUR-ORG/customer-service
+spec:
+  type: service
+  system: customer-management-platform
+  lifecycle: production
+  providesApis:
+    - customers-api
+    - customer-addresses-api

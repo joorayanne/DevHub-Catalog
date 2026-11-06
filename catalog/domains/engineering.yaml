@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: engineering
+  title: Engineering
+  description: Domain for Engineering
+  annotations:
+    devhub.io/generated-by: devhub-catalog-sync
+spec: {}

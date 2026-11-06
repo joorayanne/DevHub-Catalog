@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: devhub-central-catalog
+  annotations:
+    devhub.io/generated-by: devhub-catalog-sync
+spec:
+  type: url
+  targets:
+    - ./domains/project.yaml
+    - ./domains/engineering.yaml
+    - ./systems/customer-management-platform.yaml
+    - ./components/customer-service.yaml
+    - ./apis/customers-api.yaml
+    - ./apis/customer-addresses-api.yaml
+    - ./components/notification-service.yaml
+    - ./apis/notification-api.yaml
+    - ./systems/internal-admin-platform.yaml
+    - ./components/admin-frontend.yaml
+    - ./apis/admin-api.yaml
